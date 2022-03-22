@@ -45,7 +45,7 @@ public class LancamentoServiceTest {
 
     @Test
     public void testBuscarLancamentoPorFuncionarioId() {
-        Page<Lancamento> lancamento = this.lancamentoService.buscarPorFuncionarioId(1L, new PageRequest(0,10));
+        Page<Lancamento> lancamento = this.lancamentoService.buscarPorFuncionarioId(1L,0);
 
         assertNotNull(lancamento);
     }

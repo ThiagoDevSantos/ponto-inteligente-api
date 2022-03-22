@@ -41,6 +41,6 @@ public class LancamentoServiceImpl implements LancamentoService {
 
     public void remover(Long id) {
         log.info("Removendo o lançamento ID {}", id);
-        this.lancamentoRepository.delete(id);
+        this.lancamentoRepository.deleteById(id);
     }
 }
