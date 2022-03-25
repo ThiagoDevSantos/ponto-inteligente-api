@@ -1,4 +1,4 @@
-package api.com.pontoeletronico.repositories;
+package pontoeletronico.api.repositories;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -6,10 +6,12 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import pontoeletronico.api.entities.Empresa;
 import pontoeletronico.api.entities.Funcionario;
@@ -20,8 +22,8 @@ import pontoeletronico.api.utils.PasswordUtils;
 
 import java.security.NoSuchAlgorithmException;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
+@RunWith(SpringRunner.class)
 @ActiveProfiles("test")
 public class FuncionarioRepositoryTest {
 
@@ -34,7 +36,7 @@ public class FuncionarioRepositoryTest {
     private static final String EMAIL = "email@email.com";
     private static final String CPF = "24291173474";
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         Empresa empresa = this.empresaRepository.save(obterDadosEmpresa());
         this.funcionarioRepository.save(obterDadosFuncionario(empresa));

@@ -1,10 +1,11 @@
-package api.com.pontoeletronico.services;
+package pontoeletronico.api.services;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
@@ -19,7 +20,7 @@ import pontoeletronico.api.services.FuncionarioService;
 
 import java.util.Optional;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
 @ActiveProfiles("test")
 public class FuncionarioServiceTest {
@@ -30,7 +31,7 @@ public class FuncionarioServiceTest {
     @Autowired
     private FuncionarioService funcionarioService;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         BDDMockito.given(this.funcionarioRepository.save(Mockito.any(Funcionario.class))).willReturn(new Funcionario());
         BDDMockito.given(this.funcionarioRepository.findById(Mockito.anyLong())).willReturn(Optional.of(new Funcionario()));

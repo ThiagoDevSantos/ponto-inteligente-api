@@ -1,4 +1,4 @@
-package api.com.pontoeletronico.controllers;
+package pontoeletronico.api.controllers;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;

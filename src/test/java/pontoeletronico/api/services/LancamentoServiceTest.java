@@ -1,10 +1,11 @@
-package api.com.pontoeletronico.services;
+package pontoeletronico.api.services;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
@@ -14,16 +15,17 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import pontoeletronico.api.entities.Lancamento;
+import java.util.ArrayList;
+import java.util.Optional;
 import pontoeletronico.api.repositories.LancamentoRepository;
 import pontoeletronico.api.services.LancamentoService;
 
-import java.util.ArrayList;
-import java.util.Optional;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
 @ActiveProfiles("test")
 public class LancamentoServiceTest {
@@ -34,7 +36,7 @@ public class LancamentoServiceTest {
     @Autowired
     private LancamentoService lancamentoService;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         BDDMockito
                 .given(this.lancamentoRepository.findByFuncionarioId(Mockito.anyLong(), Mockito.any(PageRequest.class)))
@@ -45,7 +47,7 @@ public class LancamentoServiceTest {
 
     @Test
     public void testBuscarLancamentoPorFuncionarioId() {
-        Page<Lancamento> lancamento = this.lancamentoService.buscarPorFuncionarioId(1L,0);
+        Page<Lancamento> lancamento = this.lancamentoService.buscarPorFuncionarioId(1L,PageRequest.of(10,0));
 
         assertNotNull(lancamento);
     }

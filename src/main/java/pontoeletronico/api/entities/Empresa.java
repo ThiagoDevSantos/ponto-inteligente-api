@@ -11,6 +11,8 @@ public class Empresa implements Serializable {
 
     private static final long serialVersionUID = 25781547l;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String razaoSocial;
     private String cnpj;

@@ -1,4 +1,4 @@
-package api.com.pontoeletronico.utils;
+package pontoeletronico.api.utils;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;

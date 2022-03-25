@@ -1,9 +1,10 @@
-package api.com.pontoeletronico.repositories;
+package pontoeletronico.api.repositories;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,7 +35,7 @@ public class LancamentoRepositoryTest {
 
     private Long funcionarioId;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         Empresa empresa = this.empresaRepository.save(obterDadosEmpresa());
 
@@ -59,7 +60,7 @@ public class LancamentoRepositoryTest {
 
     @Test
     public void testBuscarLancamentosPorFuncionarioIdPaginado() {
-       PageRequest page = new PageRequest(0,10);
+       PageRequest page = PageRequest.of(0,10);
         Page<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId, page);
 
         assertEquals(2, lancamentos.getTotalElements());

@@ -15,6 +15,8 @@ public class Funcionario implements Serializable {
 
     private static final long serialVersionUID = 25781547l;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private String email;
@@ -33,8 +35,6 @@ public class Funcionario implements Serializable {
 
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
